@@ -2,22 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FoodZone</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Segoe UI, Arial;
-}
-html{ scroll-behavior:smooth; }
-body{ background:#f4f4f4; }
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial;}
+html{scroll-behavior:smooth;}
+body{background:#f4f4f4;}
 
 /* NAVBAR */
 nav{
-    position:sticky;
-    top:0;
+    position:sticky;top:0;
     background:#ff5722;
     padding:15px 30px;
     display:flex;
@@ -26,97 +21,57 @@ nav{
     color:#fff;
     z-index:1000;
 }
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:25px;
-    align-items:center;
-}
-nav ul li a{
-    text-decoration:none;
-    color:white;
-    font-weight:bold;
-}
-.cart-icon{ position:relative; cursor:pointer; }
+nav ul{list-style:none;display:flex;gap:20px;align-items:center;}
+nav a{text-decoration:none;color:white;font-weight:bold;}
+select{padding:6px;border-radius:5px;border:none;}
+.cart-icon{position:relative;cursor:pointer;}
 .cart-count{
-    position:absolute;
-    top:-8px;
-    right:-10px;
-    background:black;
-    color:white;
-    font-size:12px;
-    padding:2px 6px;
-    border-radius:50%;
-}
-select{
-    padding:6px;
-    border-radius:5px;
-    border:none;
+    position:absolute;top:-8px;right:-10px;
+    background:black;color:white;
+    font-size:12px;padding:2px 6px;border-radius:50%;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    align-items:center;
     padding:60px 8%;
     background:linear-gradient(to right,#ff5722,#ff8a50);
-    color:white;
+    color:white;align-items:center;
 }
-.hero h1{
-    font-size:48px;
-}
-.hero p{
-    margin:20px 0;
-    font-size:18px;
-}
+.hero h1{font-size:48px;}
+.hero p{margin:20px 0;font-size:18px;}
 .hero button{
-    padding:12px 25px;
-    font-size:16px;
-    border:none;
-    background:white;
-    color:#ff5722;
-    border-radius:5px;
-    cursor:pointer;
-    font-weight:bold;
+    padding:12px 25px;border:none;
+    background:white;color:#ff5722;
+    border-radius:5px;font-weight:bold;cursor:pointer;
 }
-.hero img{
-    width:100%;
-    max-width:450px;
-}
+.hero img{width:100%;max-width:450px;border-radius:20px;}
 
-/* SECTIONS */
-.section{
-    padding:50px 8%;
-}
+/* SECTION */
+.section{padding:50px 8%;}
 
 /* PRODUCTS */
 .products{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    gap:30px;justify-items:center;
 }
 .card{
-    background:#fff;
-    padding:15px;
-    border-radius:12px;
-    text-align:center;
+    background:white;padding:15px;border-radius:12px;
+    text-align:center;width:300px;
     box-shadow:0 6px 12px rgba(0,0,0,0.1);
-    transition:0.3s;
+    transition:.3s;
 }
-.card:hover{ transform:translateY(-5px); }
+.card:hover{transform:translateY(-5px);}
 .card img{
-    width:150px;
-    height:120px;
+    width:100%;height:200px;
+    object-fit:cover;border-radius:10px;
 }
 .card button{
-    margin-top:10px;
-    padding:8px 15px;
-    border:none;
-    background:#ff5722;
-    color:#fff;
-    border-radius:5px;
-    cursor:pointer;
+    margin-top:10px;padding:8px 15px;
+    border:none;background:#ff5722;
+    color:white;border-radius:5px;cursor:pointer;
 }
 
 /* ABOUT */
@@ -126,12 +81,11 @@ select{
     gap:20px;
 }
 .about-box{
-    background:white;
-    padding:25px;
+    background:white;padding:25px;
     border-radius:12px;
     box-shadow:0 6px 12px rgba(0,0,0,0.1);
 }
-.about-box h3{ color:#ff5722; margin-bottom:10px; }
+.about-box h3{color:#ff5722;margin-bottom:10px;}
 
 /* CONTACT */
 .contact-wrapper{
@@ -140,184 +94,114 @@ select{
     gap:20px;
 }
 .contact-info,.contact-form{
-    background:white;
-    padding:25px;
-    border-radius:12px;
+    background:white;padding:25px;border-radius:12px;
     box-shadow:0 6px 12px rgba(0,0,0,0.1);
 }
 .contact-form input,.contact-form textarea{
-    width:100%;
-    padding:10px;
-    margin:10px 0;
+    width:100%;padding:10px;margin:10px 0;
 }
 .contact-form button{
-    width:100%;
-    padding:10px;
-    background:#ff5722;
-    color:white;
-    border:none;
-    cursor:pointer;
+    width:100%;padding:10px;
+    background:#ff5722;color:white;border:none;
 }
 
 /* CART */
 .cart{
-    position:fixed;
-    top:0;
-    right:-100%;
-    width:320px;
-    height:100%;
-    background:#fff;
-    box-shadow:-3px 0 10px rgba(0,0,0,0.3);
-    padding:20px;
-    transition:0.3s;
-    z-index:2000;
+    position:fixed;top:0;right:-100%;
+    width:320px;height:100%;
+    background:white;box-shadow:-3px 0 10px rgba(0,0,0,.3);
+    padding:20px;transition:.3s;z-index:2000;
 }
-.cart.active{ right:0; }
+.cart.active{right:0;}
+.cart h3{text-align:center;color:#ff5722;margin-bottom:15px;}
 .cart-item{
-    display:flex;
-    justify-content:space-between;
-    margin:10px 0;
+    display:flex;justify-content:space-between;
+    background:#f9f9f9;padding:10px;
+    border-radius:8px;margin-bottom:10px;
 }
-.cart button{
-    background:red;
-    border:none;
-    color:white;
-    padding:5px 8px;
-    cursor:pointer;
+.cart-item button{
+    background:red;color:white;border:none;
+    padding:5px 8px;border-radius:5px;
 }
-.total{ font-weight:bold; margin-top:15px; }
+.total{font-weight:bold;margin:15px 0;}
+
+/* MEDIA QUERIES */
+@media(max-width:600px){
+    nav{flex-direction:column;gap:10px;}
+    nav ul{flex-wrap:wrap;justify-content:center;}
+    .hero{text-align:center;padding:40px 5%;}
+    .hero h1{font-size:32px;}
+    .products{grid-template-columns:1fr;}
+    .card{width:90%;}
+    .cart{width:100%;}
+}
+@media(min-width:601px) and (max-width:900px){
+    .products{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:901px){
+    .products{grid-template-columns:repeat(3,1fr);}
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
-    <h2>🍔 FoodZone</h2>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li>
-            <select onchange="filterCategory(this.value)">
-                <option value="all">Categories</option>
-                <option value="fast">Fast Food</option>
-                <option value="indian">Indian</option>
-                <option value="beverage">Beverages</option>
-            </select>
-        </li>
-        <li><a href="#contact">Contact</a></li>
-        <li class="cart-icon" onclick="toggleCart()">🛒 Cart
-            <span class="cart-count" id="cartCount">0</span>
-        </li>
-    </ul>
+<h2>🍔 FoodZone</h2>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li>
+<select onchange="filterCategory(this.value)">
+<option value="all">Categories</option>
+<option value="fast">Fast Food</option>
+<option value="indian">Indian</option>
+<option value="Juice">Juice</option>
+</select>
+</li>
+<li><a href="#contact">Contact</a></li>
+<li class="cart-icon" onclick="toggleCart()">🛒 Cart
+<span class="cart-count" id="cartCount">0</span>
+</li>
+</ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-    <div>
-        <h1>Delicious Food Delivered Fast</h1>
-        <p>Order your favorite meals from FoodZone and enjoy fresh,
-           tasty food delivered to your doorstep.</p>
-        <button onclick="document.getElementById('home').scrollIntoView()">Order Now</button>
-    </div>
-    <img src="https://img.freepik.com/free-photo/top-view-circular-food-frame_23-2148723455.jpg?semt=ais_hybrid&w=740&q=80">
+<div>
+<h1>Delicious Food Delivered Fast</h1>
+<p>Fresh & tasty food at your doorstep</p>
+<button onclick="document.getElementById('home').scrollIntoView()">Order Now</button>
+</div>
+<img src="https://img.freepik.com/free-photo/top-view-circular-food-frame_23-2148723455.jpg">
 </section>
 
-<!-- HOME -->
+<!-- PRODUCTS -->
 <div id="home" class="section">
 <h2>Popular Foods</h2><br>
 <div class="products">
-    <div class="card" data-category="fast">
-        <img src="https://thedeliciousspoon.com/wp-content/uploads/2019/04/Burger-pic-pin-1.jpg">
-        <h4>Burger</h4>
-        <p>₹120</p>
-        <button onclick="addToCart('Burger',120)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="fast">
-        <img src="https://hips.hearstapps.com/hmg-prod/images/classic-cheese-pizza-recipe-2-64429a0cb408b.jpg?crop=0.8888888888888888xw:1xh;center,top&resize=1200:*">
-        <h4>Pizza</h4>
-        <p>₹250</p>
-        <button onclick="addToCart('Pizza',250)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="indian">
-        <img src="https://media.istockphoto.com/id/1410130688/photo/mutton-biryani-served-in-a-golden-dish-isolated-on-dark-background-side-view-indian-food.jpg?s=612x612&w=0&k=20&c=ueFrghYZuKAty-rFVe5dtMtNIbn0jaUsSvCUwTVOmd8=">
-        <h4>Biryani</h4>
-        <p>₹180</p>
-        <button onclick="addToCart('Biryani',180)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="beverage">
-        <img src="https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?cs=srgb&dl=pexels-fotios-photos-109275.jpg&fm=jpg">
-        <h4>Cold Drink</h4>
-        <p>₹60</p>
-        <button onclick="addToCart('Cold Drink',60)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="fast">
-        <img src="https://media.gettyimages.com/id/637790866/photo/100-lamb-greek-burger.jpg?s=612x612&w=gi&k=20&c=zsrjZItvNWD3biBSX0kW-Z93dc34-WGLKii8mBfLTJk=">
-        <h4>Burger</h4>
-        <p>₹220</p>
-        <button onclick="addToCart('Burger',120)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="fast">
-        <img src="https://thumbs.dreamstime.com/b/french-fries-17661700.jpg">
-        <h4>French fries</h4>
-        <p>₹150</p>
-        <button onclick="addToCart('French fries',150)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="indian">
-        <img src="https://png.pngtree.com/thumb_back/fh260/background/20241007/pngtree-chicken-biryani-with-onions-herbs-image_16340511.jpg">
-        <h4>Biryani</h4>
-        <p>₹180</p>
-        <button onclick="addToCart('Biryani',180)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="beverage">
-        <img src="https://5.imimg.com/data5/NQ/XF/MY-3051570/double-pe-cold-cups-500x500.jpg">
-        <h4>Cold Drink</h4>
-        <p>₹60</p>
-        <button onclick="addToCart('Cold Drink',60)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="fast">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcstnLAydq6di_qc5sCTR3pVeyRD_-MQUdGw&s">
-        <h4>Egg puff</h4>
-        <p>₹100</p>
-        <button onclick="addToCart('Egg puff',100)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="fast">
-        <img src="https://www.vindulge.com/wp-content/uploads/2022/06/Buffalo-Chicken-Pizza.jpg">
-        <h4>Chicken Pizza</h4>
-        <p>₹250</p>
-        <button onclick="addToCart('Chicken Pizza',250)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="indian">
-        <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2021/06/masala-dosa-recipe.jpg">
-        <h4>Dosa</h4>
-        <p>₹40</p>
-        <button onclick="addToCart('Dosa',40)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="beverage">
-        <img src="https://livpure.com/cdn/shop/articles/List-of-Factors-to-Take-Into-Account-When-Buying-a-Water-Purifier-1_b86a5210-43a6-4b66-b608-6792fede4d3a-163194.png?v=1726726253&width=1100">
-        <h4>orange juice</h4>
-        <p>₹60</p>
-        <button onclick="addToCart('Cold Drink',60)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="fast">
-        <img src="https://nestle.fitterfly.in/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBZ3RmIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--321d15b672ef78ef5dc93c2cb26145252daabbc4/18740_Vegetable_Peanut_Butter_Sandwich.webp">
-        <h4>Sandwich</h4>
-        <p>₹120</p>
-        <button onclick="addToCart('Sandwich',120)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="fast">
-        <img src="https://c8.alamy.com/comp/2AC76T2/different-types-of-colorful-donats-decorated-sprinkles-and-icing-in-box-on-pink-background-top-view-2AC76T2.jpg">
-        <h4>Donats</h4>
-        <p>₹250</p>
-        <button onclick="addToCart('Pizza',250)">Add to Cart</button>
-    </div>
-    <div class="card" data-category="indian">
-        <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2020/12/poori-puri-recipe.jpg">
-        <h4>Puri</h4>
-        <p>₹80</p>
-        <button onclick="addToCart('Puri',80)">Add to Cart</button>
-    </div>
-    
+
+<!-- FAST FOOD -->
+<div class="card" data-category="fast"><img src="https://thedeliciousspoon.com/wp-content/uploads/2019/04/Burger-pic-pin-1.jpg"><h4>Burger</h4><p>₹120</p><button onclick="addToCart('Burger',120)">Add to Cart</button></div>
+<div class="card" data-category="fast"><img src="https://hips.hearstapps.com/hmg-prod/images/classic-cheese-pizza-recipe-2-64429a0cb408b.jpg"><h4>Pizza</h4><p>₹150</p><button onclick="addToCart('Pizza',150)">Add to Cart</button></div>
+<div class="card" data-category="fast"><img src="https://thumbs.dreamstime.com/b/french-fries-17661700.jpg"><h4>French Fries</h4><p>₹100</p><button onclick="addToCart('French Fries',100)">Add to Cart</button></div>
+<div class="card" data-category="fast"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcstnLAydq6di_qc5sCTR3pVeyRD_-MQUdGw&s"><h4>Egg Puff</h4><p>₹100</p><button onclick="addToCart('Egg Puff',100)">Add to Cart</button></div>
+<div class="card" data-category="fast"><img src="https://www.bestcheck.in/wp-content/uploads/2023/03/maggi-noodles.jpg"><h4>Maggi</h4><p>₹80</p><button onclick="addToCart('Maggi',80)">Add to Cart</button></div>
+
+<!-- INDIAN -->
+<div class="card" data-category="indian"><img src="https://s.yimg.com/fz/api/res/1.2/.EIUUWiaKKuaBqYlAVGHOw--~C/YXBwaWQ9c3JjaGRkO2ZpPWZpbGw7aD00MTI7cHhvZmY9NTA7cHlvZmY9MTAwO3E9ODA7c3M9MTt3PTM4OA--/https://i.pinimg.com/736x/c5/d2/62/c5d262f3377da91a7229772026a2ec5c.jpg"><h4>Hyderabad Biryani</h4><p>₹180</p><button onclick="addToCart('Biryani',180)">Add to Cart</button></div>
+<div class="card" data-category="indian"><img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2021/06/masala-dosa-recipe.jpg"><h4>Dosa</h4><p>₹40</p><button onclick="addToCart('Dosa',40)">Add to Cart</button></div>
+<div class="card" data-category="indian"><img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2020/12/poori-puri-recipe.jpg"><h4>Puri</h4><p>₹80</p><button onclick="addToCart('Puri',80)">Add to Cart</button></div>
+<div class="card" data-category="indian"><img src="https://tse2.mm.bing.net/th/id/OIP.AurHp-EPDFIZ_F8zMAP6hAHaE8?pid=Api&h=220&P=0"><h4>Idly</h4><p>₹40</p><button onclick="addToCart('Idly',40)">Add to Cart</button></div>
+
+
+<!-- BEVERAGES -->
+<!-- BEVERAGES -->
+<div class="card" data-category="Juice"><img src="https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg"><h4>Cold Drink</h4><p>₹60</p><button onclick="addToCart('Cold Drink',60)">Add to Cart</button></div>
+<div class="card" data-category="Juice"><img src="https://livpure.com/cdn/shop/articles/List-of-Factors-to-Take-Into-Account-When-Buying-a-Water-Purifier-1_b86a5210-43a6-4b66-b608-6792fede4d3a-163194.png"><h4>Orange Juice</h4><p>₹60</p><button onclick="addToCart('Orange Juice',60)">Add to Cart</button></div>
+<div class="card" data-category="Juice"><img src="https://tse2.mm.bing.net/th/id/OIP.hgSGomj11de6xtASgpopSAHaFj?pid=Api&h=220&P=0"><h4>Banana Juice</h4><p>₹40</p><button onclick="addToCart('banana Juice',40)">Add to Cart</button></div>
+
 </div>
 </div>
 
@@ -325,18 +209,9 @@ select{
 <div id="about" class="section">
 <h2>About FoodZone</h2><br>
 <div class="about-grid">
-    <div class="about-box">
-        <h3>Who We Are</h3>
-        <p>FoodZone is a modern online food ordering platform delivering quality meals.</p>
-    </div>
-    <div class="about-box">
-        <h3>Our Mission</h3>
-        <p>To provide fast, easy and affordable food ordering experience.</p>
-    </div>
-    <div class="about-box">
-        <h3>Why Choose Us</h3>
-        <p>Fresh food, live cart updates and user-friendly design.</p>
-    </div>
+<div class="about-box"><h3>Who We Are</h3><p>Online food ordering platform.</p></div>
+<div class="about-box"><h3>Mission</h3><p>Fast & affordable food delivery.</p></div>
+<div class="about-box"><h3>Why Choose Us</h3><p>Fresh food & easy cart.</p></div>
 </div>
 </div>
 
@@ -344,17 +219,17 @@ select{
 <div id="contact" class="section">
 <h2>Contact Us</h2><br>
 <div class="contact-wrapper">
-    <div class="contact-info">
-        <p>📍 Hyderabad, Telangana</p>
-        <p>📞 +91 98765 43210</p>
-        <p>📧 support@foodzone.com</p>
-    </div>
-    <div class="contact-form">
-        <input placeholder="Name">
-        <input placeholder="Email">
-        <textarea placeholder="Message"></textarea>
-        <button>Send</button>
-    </div>
+<div class="contact-info">
+<p>📍 Hyderabad</p>
+<p>📞 +91 9876543210</p>
+<p>📧 support@foodzone.com</p>
+</div>
+<div class="contact-form">
+<input placeholder="Name">
+<input placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button>Send</button>
+</div>
 </div>
 </div>
 
@@ -368,33 +243,21 @@ select{
 
 <script>
 let cart=[],total=0;
-
-function toggleCart(){
-    document.getElementById('cart').classList.toggle('active');
-}
-function addToCart(name,price){
-    cart.push({name,price});
-    total+=price;
-    updateCart();
-}
-function removeItem(i){
-    total-=cart[i].price;
-    cart.splice(i,1);
-    updateCart();
-}
+function toggleCart(){document.getElementById("cart").classList.toggle("active");}
+function addToCart(name,price){cart.push({name,price});total+=price;updateCart();}
+function removeItem(i){total-=cart[i].price;cart.splice(i,1);updateCart();}
 function updateCart(){
-    let c=document.getElementById('cartItems');
-    c.innerHTML="";
+    let c=document.getElementById("cartItems");c.innerHTML="";
     cart.forEach((it,i)=>{
         c.innerHTML+=`<div class="cart-item">
         <span>${it.name} - ₹${it.price}</span>
         <button onclick="removeItem(${i})">X</button></div>`;
     });
-    document.getElementById('total').innerText=total;
-    document.getElementById('cartCount').innerText=cart.length;
+    document.getElementById("total").innerText=total;
+    document.getElementById("cartCount").innerText=cart.length;
 }
 function filterCategory(cat){
-    document.querySelectorAll('.card').forEach(c=>{
+    document.querySelectorAll(".card").forEach(c=>{
         c.style.display=(cat==="all"||c.dataset.category===cat)?"block":"none";
     });
 }
